@@ -13,43 +13,39 @@ class GildedRose {
 
         public final String name;
 
-        // Constructor
         Message(String name) {
             this.name = name;
         }
     }
 
-    public void nameNotEqualsAgedBrieOrBackstage(){
+    public void reduceQuality(){
         if (items[i].quality > 0 && !items[i].name.equals(ItemName.SULFURAS.name)) {
                 items[i].quality--;
         }
     }
-    public void qualityLessThan50(){
+    public void increaseQuality(){
         if (items[i].quality < 50) {
             items[i].quality++;
         }
     }
     public void nameEqualsBackstage(){
         if (items[i].sellIn < 6) {
-            qualityLessThan50();
-            qualityLessThan50();
+            increaseQuality();
+            increaseQuality();
         }else if (items[i].sellIn < 11){
-            qualityLessThan50();
+            increaseQuality();
         }
     }
-
     public void sellInLessThan0(){
         if (!items[i].name.equals(ItemName.AGED_BRIE.name)
                 && !items[i].name.equals(ItemName.BACKSTAGE_PASS.name))
         {
-            nameNotEqualsAgedBrieOrBackstage();
+            reduceQuality();
         }else if (items[i].name.equals(ItemName.BACKSTAGE_PASS.name)){
             items[i].quality = 0;
         }else if (items[i].name.equals(ItemName.AGED_BRIE.name)){
-            qualityLessThan50();
-
+            increaseQuality();
         }
-
     }
 
     public void updateQuality() {
@@ -57,12 +53,12 @@ class GildedRose {
             if (!items[i].name.equals(ItemName.AGED_BRIE.name)
                     && !items[i].name.equals(ItemName.BACKSTAGE_PASS.name))
             {
-                nameNotEqualsAgedBrieOrBackstage();
+                reduceQuality();
             }else if (items[i].name.equals(ItemName.BACKSTAGE_PASS.name)){
-                qualityLessThan50();
+                increaseQuality();
                 nameEqualsBackstage();
             }else if (items[i].name.equals(ItemName.AGED_BRIE.name)){
-                qualityLessThan50();
+                increaseQuality();
             }
 
             if (!items[i].name.equals(ItemName.SULFURAS.name)) {
@@ -72,7 +68,6 @@ class GildedRose {
             if (items[i].sellIn < 0){
                 sellInLessThan0();
             }
-
         }
     }
 }
