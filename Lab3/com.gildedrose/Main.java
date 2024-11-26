@@ -20,9 +20,8 @@ class GildedRose {
     }
 
     public void nameNotEqualsAgedBrieOrBackstage(){
-        if (items[i].quality > 0 && !items[i].name.equals(ItemName.SULFURAS.name) {
+        if (items[i].quality > 0 && !items[i].name.equals(ItemName.SULFURAS.name)) {
                 items[i].quality--;
-
         }
     }
     public void qualityLessThan50(){
@@ -31,11 +30,10 @@ class GildedRose {
         }
     }
     public void nameEqualsBackstage(){
-        if (items[i].sellIn < 11) {
-            qualityLessThan50();
-        }
-
         if (items[i].sellIn < 6) {
+            qualityLessThan50();
+            qualityLessThan50();
+        }else if (items[i].sellIn < 11){
             qualityLessThan50();
         }
     }
