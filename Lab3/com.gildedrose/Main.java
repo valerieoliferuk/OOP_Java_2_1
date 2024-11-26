@@ -29,12 +29,9 @@ class GildedRose {
         }
     }
     public void nameEqualsBackstage(){
-        if (items[i].sellIn < 6) {
-            increaseQuality();
-            increaseQuality();
-        }else if (items[i].sellIn < 11){
-            increaseQuality();
-        }
+        if (items[i].sellIn >= 11) return;
+        increaseQuality();
+        if (items[i].sellIn < 6) increaseQuality();
     }
     public void sellInLessThan0(){
         if (!items[i].name.equals(ItemName.AGED_BRIE.name)
