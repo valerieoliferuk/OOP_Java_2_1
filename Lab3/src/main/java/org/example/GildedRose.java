@@ -1,7 +1,7 @@
-package com.gildedrose;
+package org.example;
 
-class GildedRose {
-    Item[] items;
+public class GildedRose {
+    public Item[] items;
 
     public GildedRose(Item[] items) {
         this.items = items;
@@ -13,14 +13,14 @@ class GildedRose {
 
         public final String name;
 
-        Message(String name) {
+        ItemName(String name) {
             this.name = name;
         }
     }
 
     public void reduceQuality(){
         if (items[i].quality > 0 && !items[i].name.equals(ItemName.SULFURAS.name)) {
-                items[i].quality--;
+            items[i].quality--;
         }
     }
     public void increaseQuality(){
@@ -57,12 +57,11 @@ class GildedRose {
             }else if (items[i].name.equals(ItemName.AGED_BRIE.name)){
                 increaseQuality();
             }
-
             if (!items[i].name.equals(ItemName.SULFURAS.name)) {
                 items[i].sellIn--;
             }
 
-            if (items[i].sellIn < 0){
+            if (items[i].sellIn < 0) {
                 sellInLessThan0();
             }
         }
