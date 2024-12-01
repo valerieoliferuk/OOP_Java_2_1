@@ -18,30 +18,30 @@ public class GildedRose {
         }
     }
 
-    public void reduceQuality(){
+    public void reduceQuality(int i){
         if (items[i].quality > 0 && !items[i].name.equals(ItemName.SULFURAS.name)) {
             items[i].quality--;
         }
     }
-    public void increaseQuality(){
+    public void increaseQuality(int i){
         if (items[i].quality < 50) {
             items[i].quality++;
         }
     }
-    public void nameEqualsBackstage(){
+    public void nameEqualsBackstage(int i){
         if (items[i].sellIn >= 11) return;
-        increaseQuality();
-        if (items[i].sellIn < 6) increaseQuality();
+        increaseQuality(i);
+        if (items[i].sellIn < 6) increaseQuality(i);
     }
-    public void sellInLessThan0(){
+    public void sellInLessThan0(int i){
         if (!items[i].name.equals(ItemName.AGED_BRIE.name)
                 && !items[i].name.equals(ItemName.BACKSTAGE_PASS.name))
         {
-            reduceQuality();
+            reduceQuality(i);
         }else if (items[i].name.equals(ItemName.BACKSTAGE_PASS.name)){
             items[i].quality = 0;
         }else if (items[i].name.equals(ItemName.AGED_BRIE.name)){
-            increaseQuality();
+            increaseQuality(i);
         }
     }
 
@@ -50,19 +50,19 @@ public class GildedRose {
             if (!items[i].name.equals(ItemName.AGED_BRIE.name)
                     && !items[i].name.equals(ItemName.BACKSTAGE_PASS.name))
             {
-                reduceQuality();
+                reduceQuality(i);
             }else if (items[i].name.equals(ItemName.BACKSTAGE_PASS.name)){
-                increaseQuality();
-                nameEqualsBackstage();
+                increaseQuality(i);
+                nameEqualsBackstage(i);
             }else if (items[i].name.equals(ItemName.AGED_BRIE.name)){
-                increaseQuality();
+                increaseQuality(i);
             }
             if (!items[i].name.equals(ItemName.SULFURAS.name)) {
                 items[i].sellIn--;
             }
 
             if (items[i].sellIn < 0) {
-                sellInLessThan0();
+                sellInLessThan0(i);
             }
         }
     }
