@@ -10,8 +10,12 @@ public class CEO extends Worker{
         super(name, role);
         teamMembersManagers = new ArrayList<>();
     }
-    public void addManager(Manager manager){}
-    public void removeManager(Manager manager){}
+    public void addManager(Manager manager){
+        teamMembersManagers.add(manager);
+    }
+    public void removeManager(Manager manager){
+        teamMembersManagers.remove(manager);
+    }
 
     public List<Manager> getTeamMembersManagers(){
         return teamMembersManagers;
