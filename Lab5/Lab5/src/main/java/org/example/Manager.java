@@ -22,15 +22,20 @@ public class Manager extends Worker{
 
     @Override
     public void handleRequest(Request request){
-
+        if (request.priority == 2){
+            System.out.println("A manager " + name + " did the following request: "+ request.description);
+            isRequestHandled = 1;
+        }else{
+            nextWorker.handleRequest(request);
+        }
     }
 
     @Override
     public void getDetails(){
-        System.out.println("Manager: " + name + "with team members: ");
-        for (int i=0; i<= teamMembers.size(); i++){
+        System.out.println("Manager: " + name + " with team members: ");
+        for (int i=0; i< teamMembers.size(); i++){
             Worker member = teamMembers.get(i);
-            System.out.println("Member"+i+" :"+member.name);
+            System.out.println("Member "+i+" :"+member.name);
         }
     }
 }

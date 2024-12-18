@@ -22,13 +22,18 @@ public class CEO extends Worker{
     }
     @Override
     public void handleRequest(Request request){
-
+        if (request.priority == 3){
+            System.out.println("The CEO " + name + " did the following request: "+ request.description);
+            isRequestHandled = 1;
+        }else{
+            nextWorker.handleRequest(request);
+        }
     }
 
     @Override
     public void getDetails(){
         System.out.println("CEO: "+ name + "with team members: ");
-        for (int i=0; i<=teamMembersManagers.size(); i++){
+        for (int i=0; i<teamMembersManagers.size(); i++){
             System.out.println("Member " + i + " : " + name);
         }
     }
