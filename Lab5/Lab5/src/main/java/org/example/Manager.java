@@ -21,6 +21,11 @@ public class Manager extends Worker{
     }
 
     @Override
+    public void handleRequest(Request request){
+
+    }
+
+    @Override
     public void getDetails(){
         System.out.println("Manager: " + name + "with team members: ");
         for (int i=0; i<= teamMembers.size(); i++){

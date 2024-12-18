@@ -21,6 +21,11 @@ public class CEO extends Worker{
         return teamMembersManagers;
     }
     @Override
+    public void handleRequest(Request request){
+
+    }
+
+    @Override
     public void getDetails(){
         System.out.println("CEO: "+ name + "with team members: ");
         for (int i=0; i<=teamMembersManagers.size(); i++){

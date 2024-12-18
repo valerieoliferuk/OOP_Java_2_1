@@ -1,6 +1,6 @@
 package org.example;
 
-public abstract class Request {
+public class Request {
     protected int priority;
     protected String description;
 
