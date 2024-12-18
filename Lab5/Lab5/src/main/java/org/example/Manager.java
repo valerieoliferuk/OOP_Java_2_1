@@ -10,10 +10,10 @@ public class Manager extends Worker{
         teamMembers = new ArrayList<>();
     }
     public void addWorker(Worker worker){
-
+        teamMembers.add(worker);
     }
     public void removeWorker(Worker worker){
-
+        teamMembers.remove(worker);
     }
 
     public List<Worker> getTeamMembers() {
